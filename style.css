@@ -8,12 +8,6 @@ body {
   height: 100%;
 }
 
-/* *,
-*::before,
-*::after {
-  border: lime 1px solid;
-} */
-
 * {
   padding: 0;
   margin: 0;
@@ -42,14 +36,10 @@ h2 {
 
 section {
   display: grid;
-  grid-template-columns: repeat(2, 50%);
+  grid-template-columns: 100vw;
   grid-auto-flow: dense;
 
   height: min(100vh, 1000px);
-}
-
-section:nth-child(even) div.canva-holder {
-  grid-column: 2;
 }
 
 div.front,
@@ -82,10 +72,13 @@ div.canva-holder {
   background: #000;
   overflow: hidden;
 }
-/* 
-@media screen and (max-width: 750px) {
+
+@media screen and (min-width: 750px) {
   section {
-    display: grid;
-    grid-template-columns: 100%;
+    grid-template-columns: repeat(2, 50%);
   }
-} */
+
+  section:nth-child(even) div.canva-holder {
+    grid-column: 2;
+  }
+}
