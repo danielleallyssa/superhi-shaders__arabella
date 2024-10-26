@@ -1,4 +1,4 @@
-const frag = `
+const fragment = `
 
 #ifdef GL_ES
 precision highp float;
