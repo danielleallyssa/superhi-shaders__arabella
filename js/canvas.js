@@ -13,6 +13,7 @@ canvases.forEach((canvas, i) => {
   const sandbox = new GlslCanvas(canvas);
   sandbox.load(frag);
   sandbox.setUniform("image", `assets/${image}`);
+  sandbox.setUniform("seed", Math.random());
 
   const sizer = () => {
     const w = canvas.parentNode.clientWidth;

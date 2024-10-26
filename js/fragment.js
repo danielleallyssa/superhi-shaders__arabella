@@ -1,12 +1,3 @@
-const fragTest = `
-
-void main () {
-
-gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
-
-}
-`;
-
 const frag = `
 
 #ifdef GL_ES
@@ -16,6 +7,7 @@ precision highp float;
 uniform float u_time;
 uniform vec2 u_resolution;
 uniform vec2 u_mouse;
+uniform float seed;
 
 uniform sampler2D image;
 
@@ -50,8 +42,8 @@ void main() {
        vec2 mouse = u_mouse / u_resolution;
 
     vec2 distortion = 0.1 * vec2(
-        cos(u_time * 0.5 + x + y * 1.2 + mouse.x + mouse.y),
-        sin(u_time * 0.2 + x * 1.1 + y + mouse.x + mouse.y)
+        cos(u_time * 0.5 + x + y * 1.2 + mouse.x + mouse.y + seed),
+        sin(u_time * 0.2 + x * 1.1 + y + mouse.x + mouse.y + seed)
     );
     
     vec4 color = texture2D(image, coords + distortion);
