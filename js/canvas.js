@@ -2,16 +2,17 @@ const canvasHolders = document.querySelectorAll(".canva-holder");
 
 canvasHolders.forEach((holder, i) => {
   const canvas = document.createElement("canvas");
-  canvas.classList.add(`canvas-${i + 1}`);
+  canvas.setAttribute("data-image", `image${i + 1}.jpg`);
   holder.appendChild(canvas);
 });
 
 const canvases = document.querySelectorAll("canvas");
 
-canvases.forEach((canvas) => {
-  var sandbox = new GlslCanvas(canvas);
+canvases.forEach((canvas, i) => {
+  const image = canvas.getAttribute("data-image");
+  const sandbox = new GlslCanvas(canvas);
   sandbox.load(frag);
-  sandbox.setUniform("image", "assets/image1.jpg");
+  sandbox.setUniform("image", `assets/${image}`);
 
   const sizer = () => {
     const w = canvas.parentNode.clientWidth;

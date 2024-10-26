@@ -43,7 +43,7 @@ void main() {
     vec2 coords = aspect(uv, texture_ratio, canvas_ratio); 
     coords = mix(vec2(0.2, 0.2), vec2(0.8, 0.8), coords);
     
-    float blocks = 16.0;
+    float blocks = 10.0;
     float x = floor(uv.x * blocks) / blocks;
     float y = floor(uv.y * blocks) / blocks;
 
